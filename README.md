@@ -1,6 +1,6 @@
 # Comma Decimal Demo
 
-This Dash app was created for Plotly.
+This Dash app was to demonstrate how to implement a decimal format toggle. Switches between comma and point decimal seperators.
 
 ## Running this application
 
