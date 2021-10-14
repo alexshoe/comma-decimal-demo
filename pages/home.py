@@ -1,12 +1,7 @@
 from os import read
 from dash.dependencies import Input, Output
-import dash_design_kit as ddk
-from dash_design_kit.ControlCard import ControlCard
-from dash_design_kit.ControlItem import ControlItem
-import dash_daq as daq
 import dash_html_components as html
 import dash_core_components as dcc
-import plotly.express as px
 
 from app import app
 import utils
@@ -31,27 +26,39 @@ def format_number(number, comma_or_point):
 def layout():
 
     layout = [
-        ddk.Card(
+        html.Div(
             [
                 "This is a demo app to demonstrate how to implement commas as decimal seperators in a Dash app",
-            ]
-        ),
-        ddk.ControlCard(
-            ddk.ControlItem(
-                dcc.RadioItems(
-                    id="decimal-format",
-                    value="comma",
-                    options=[
-                        {"label": "Comma Decimal", "value": "comma"},
-                        {"label": "Point Decimal", "value": "point"},
-                    ],
+                html.P(),
+                html.Div(
+                    [
+                        "Select your desired decimal format: ",
+                        dcc.RadioItems(
+                            id="decimal-format",
+                            value="comma",
+                            options=[
+                                {"label": "Comma Decimal", "value": "comma"},
+                                {"label": "Point Decimal", "value": "point"},
+                            ],
+                        ),
+                    ]
                 ),
-                label="Select your desired decimal format: ",
-            ),
+            ],
+            style={
+                "width": "800px",
+                "border": "2px solid black",
+                "padding": "20px",
+                "margin": "20px",
+                "border-radius": "10px",
+            },
         ),
-        ddk.Card(
+        html.Div(
             children=[
-                "Change the value in the input box to see reformatting in action:",
+                html.Div(
+                    "Change the value in the input box to see reformatting in action:",
+                    style={"font-weight": "bold"},
+                ),
+                html.P(),
                 html.Div(
                     [
                         "Input: ",
@@ -59,8 +66,17 @@ def layout():
                     ]
                 ),
                 html.Br(),
-                html.Div(id="my-output"),
-            ]
+                html.Div(
+                    id="my-output",
+                ),
+            ],
+            style={
+                "width": "800px",
+                "border": "2px solid black",
+                "padding": "20px",
+                "margin": "20px",
+                "border-radius": "10px",
+            },
         ),
     ]
 
