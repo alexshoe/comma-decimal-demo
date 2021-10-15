@@ -10,7 +10,6 @@ import utils
 # Depending on the decimal format toggle, it will be formatted accordingly
 def format_number(number, comma_or_point):
     readable_number = f"{float(number):,}"
-    print(type(readable_number))
     if comma_or_point == "comma":
         try:
             from string import maketrans  # Python 2
@@ -19,7 +18,6 @@ def format_number(number, comma_or_point):
         readable_number = readable_number.translate(maketrans(",.", ".,"))
         return readable_number
     else:
-        print("it's point!")
         return readable_number
 
 
