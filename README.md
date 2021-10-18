@@ -13,7 +13,7 @@ pip install -r requirements.txt
 1. Run the following command:
 
 ```python
-python index.py
+python app.py
 ```
 
 > Note:
